@@ -38,7 +38,6 @@ app.post("/api/notes", function (request, response) {
 
 //handles delete requests
 app.delete("/api/notes/*", function (request, response) {
-  console.log(request.params[0]);
   fs.readFile(dbPath, function (err, data) {
     var newJson = [];
     var json = JSON.parse(data);
@@ -49,7 +48,6 @@ app.delete("/api/notes/*", function (request, response) {
     });
     fs.writeFile(dbPath, JSON.stringify(newJson), function (err) {
       if (err) throw err;
-      console.log('The "data to append" was appended to file!');
     });
   });
   response.send(request.body); // echo the result back
@@ -74,7 +72,6 @@ function appendJSONFile(request) {
     json.push(request);
     fs.writeFile(dbPath, JSON.stringify(json), function (err) {
       if (err) throw err;
-      console.log('The "data to append" was appended to file!');
     });
   });
 }
