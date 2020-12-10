@@ -80,6 +80,6 @@ function appendJSONFile(request) {
 }
 
 // Starts the server to begin listening
-app.listen(process.env.port || PORT, () =>
+app.listen(process.env.port, () =>
   console.log(`App listening on PORT ${PORT}`)
 );
